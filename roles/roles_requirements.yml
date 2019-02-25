@@ -1,0 +1,27 @@
+---
+## This file tracks external roles
+##
+
+- name: jenkins
+  src: git+https://github.com/geerlingguy/ansible-role-jenkins
+  version: 3.7.0
+
+- name: geerlingguy.java
+  src: https://github.com/geerlingguy/ansible-role-java
+  version: 1.9.5
+
+- name: apt
+  src: git+https://github.com/AutomationWithAnsible/ansible-apt
+  version: v0.4.1
+
+- name: nginx
+  src: https://github.com/hispanico/ansible-nginx-revproxy.git
+  version: v1.1.2
+
+- name: concourse
+  src: https://github.com/ahelal/ansible-concourse
+  version: v4.0.1
+
+- name: postgresql
+  src: git+https://github.com/ANXS/postgresql.git
+  version: v1.9.0

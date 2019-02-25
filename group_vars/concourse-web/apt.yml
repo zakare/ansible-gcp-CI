@@ -1,0 +1,14 @@
+---
+## For full and default variables
+## See roles/external/apt/defaults/main.yml
+## See group_vars/all/apt.yml
+
+## Apply security patchs and reboot if needed
+upgrade_now: True  # Enable upgrade now feature
+
+# Default package to install
+apt_default_packages:                 
+  - python3-apt
+  - python3-passlib
+  - python3-bcrypt
+  - python3-psycopg2

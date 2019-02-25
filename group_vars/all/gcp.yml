@@ -1,0 +1,16 @@
+---
+## Please Fill in the Project details 
+## Global gcp variables for all instances .....
+
+# Please modify your gcp_compute_project to reflect your project in GCP 
+gcp_compute_project: "<PUT YOUR GCP PROJECT>"
+
+# Please add the service account credentials file to the root directory or change the path
+gcp_compute_service_account_file: "../service_account.json"
+
+# If not modified defaults will be applied , please check roles/internal/gcp_compute/defaults/main.yml
+# gcp_compute_zone: ""<PUT YOUR GCP ZONE>""
+# gcp_compute_region: ""<PUT YOUR GCP REGION>""
+
+# Please do not modify 
+gcp_compute_instance_name: "{{ inventory_hostname.split('.')[0] }}"

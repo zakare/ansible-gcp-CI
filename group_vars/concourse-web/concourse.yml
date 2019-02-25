@@ -1,0 +1,17 @@
+---
+#TODO PUT IN VAULT
+concourse_local_users:
+   - user: "emad"
+     pass: "{{ concourse_emad_password }}"
+
+concourse_worker_options    :
+  CONCOURSE_TSA_HOST        : "127.0.0.1"
+
+concourse_web_options:
+  CONCOURSE_MAIN_TEAM_LOCAL_USER             : "emad"
+  CONCOURSE_EXTERNAL_URL                     : "https://{{ ansible_ssh_host }}"
+  CONCOURSE_POSTGRES_DATABASE                : "concourse"
+  CONCOURSE_POSTGRES_HOST                    : "127.0.0.1"
+  CONCOURSE_POSTGRES_PASSWORD                : "{{ postgres_concourse_pass }}"
+  CONCOURSE_POSTGRES_SSLMODE                 : "disable"
+  CONCOURSE_POSTGRES_USER                    : "{{ postgres_concourse_user }}"

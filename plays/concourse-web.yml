@@ -1,0 +1,21 @@
+---
+# This is the main play to run 
+
+- name: concourse.yml | provision instance(s)
+  hosts: concourse-web
+  connection: local
+  gather_facts: false
+  become: false
+  roles:
+   - { role: gcp_compute,                 tags: ["gcp"] }
+ 
+- name: concourse.yml | All roles
+  hosts: concourse-web
+  gather_facts: true
+  become: True
+  roles:
+     - { role: apt,                       tags: ["apt"] }
+     - { role: postgresql,                tags: ["postgresql"] }
+     - { role: nginx,                     tags: ["nginx"] }
+     - { role: concourse,                 tags: ["concourse"] }
+     

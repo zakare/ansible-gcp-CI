@@ -1,0 +1,20 @@
+---
+# This is the main play to run 
+
+- name: jenkins.yml | provision instance(s)
+  hosts: jenkins
+  connection: local
+  gather_facts: false
+  become: false
+  roles:
+   - { role: gcp_compute,                 tags: ["gcp"] }
+ 
+- name: jenkins.yml | All roles
+  hosts: jenkins
+  gather_facts: true
+  become: True
+  roles:
+     - { role: apt,                       tags: ["apt"] }
+     - { role: jenkins,                   tags: ["jenkins"] }
+     - { role: nginx,                     tags: ["nginx"] }
+     

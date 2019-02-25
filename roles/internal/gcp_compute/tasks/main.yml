@@ -1,0 +1,4 @@
+---
+#Creates a GCP instance and maje sure it's  functioning and reachable 
+- include: instance.yml
+- include: ssh.yml

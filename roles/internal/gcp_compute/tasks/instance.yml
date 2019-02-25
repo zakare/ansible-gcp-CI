@@ -1,0 +1,64 @@
+---
+- name: create a disk
+  gcp_compute_disk:
+      name: 'disk-{{ gcp_compute_instance_name }}'
+      size_gb: "{{ gcp_compute_instance_disk_size }}"
+      source_image: "{{ gcp_compute_image }}"
+      zone: "{{ gcp_compute_zone }}"
+      project: "{{ gcp_compute_project }}"
+      auth_kind: "{{ gcp_compute_auth_kind }}"
+      service_account_file: "{{ gcp_compute_service_account_file }}"
+      state: "{{ gcp_compute_state }}"
+  register: gcp_compute_disk
+  
+- name: create a network
+  gcp_compute_network:  
+      name: default 
+      project: "{{ gcp_compute_project }}"
+      auth_kind: "{{ gcp_compute_auth_kind }}"
+      service_account_file: "{{ gcp_compute_service_account_file }}"
+      state: "{{ gcp_compute_state }}"
+  register: gcp_compute_network
+  
+- name: create an address
+  gcp_compute_address:
+      name: 'address-{{ gcp_compute_instance_name }}'
+      region: "{{ gcp_compute_region }}"
+      project: "{{ gcp_compute_project }}"
+      auth_kind: "{{ gcp_compute_auth_kind }}"
+      service_account_file: "{{ gcp_compute_service_account_file }}"
+      state: "{{ gcp_compute_state }}"
+  register: gcp_compute_address
+  
+- name: create a firewall
+  gcp_compute_firewall:
+      name: "firewall-{{ gcp_compute_instance_name }}-connections"
+      allowed: "{{ gcp_compute_firewall_allowed }}"
+      target_tags: "{{ gcp_compute_firewall_tags }}"
+      project: "{{ gcp_compute_project }}"
+      auth_kind: "{{ gcp_compute_auth_kind }}"
+      service_account_file: "{{ gcp_compute_service_account_file }}"
+      state: "{{ gcp_compute_state }}"
+  
+- name: create a instance
+  gcp_compute_instance:
+      state: "{{ gcp_compute_state }}"
+      name: "{{ gcp_compute_instance_name }}"
+      machine_type: "{{ gcp_compute_machine_type }}"
+      zone: "{{ gcp_compute_zone }}"
+      project: "{{ gcp_compute_project }}"
+      auth_kind: "{{ gcp_compute_auth_kind }}"
+      service_account_file: "{{ gcp_compute_service_account_file }}"
+      tags:
+        items: "{{ gcp_compute_firewall_tags }}"
+      disks:
+           - auto_delete: true
+             boot: true
+             source: "{{ gcp_compute_disk }}"
+      network_interfaces:
+           - network: "{{ gcp_compute_network }}"
+             access_configs:
+              - name: 'External NAT'
+                nat_ip: "{{ gcp_compute_address }}"
+                type: 'ONE_TO_ONE_NAT'   
+  register: gcp_compute_instance

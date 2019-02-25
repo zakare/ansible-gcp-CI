@@ -1,0 +1,4 @@
+# jave package dependency for jenkins
+ 
+java_packages:
+  - openjdk-8-jdk

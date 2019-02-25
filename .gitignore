@@ -1,0 +1,6 @@
+service_account.json
+.vpass
+*.retry
+roles/external
+test_vars.yml
+

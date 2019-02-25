@@ -1,0 +1,17 @@
+---
+## Required to be defined
+
+gcp_compute_instance_name: "{{ inventory_hostname }}"
+gcp_compute_machine_type: n1-standard-1
+gcp_compute_zone: "europe-north1-a"
+gcp_compute_region: "europe-north1" 
+gcp_compute_auth_kind: serviceaccount
+gcp_compute_image: 'projects/ubuntu-os-cloud/global/images/family/ubuntu-1804-lts'
+gcp_compute_instance_disk_size: 10
+gcp_compute_state: present                                                                 # absent option is not fully functioning
+gcp_compute_firewall_allowed:
+ - ip_protocol: tcp
+   ports:
+        - '22'
+gcp_compute_firewall_tags: 
+ - "allow-ssh"

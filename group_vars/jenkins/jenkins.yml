@@ -1,0 +1,6 @@
+# Jenkins Admin user
+jenkins_admin_username: admin
+
+# This installes Github pull reuests plugin
+jenkins_plugins:
+- ghprb

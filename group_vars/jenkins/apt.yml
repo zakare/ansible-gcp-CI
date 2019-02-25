@@ -1,0 +1,12 @@
+---
+## For full and default variables
+## See roles/external/apt/defaults/main.yml
+## See group_vars/all/apt.yml
+
+## Apply security patchs and reboot if needed
+upgrade_now: True  # Enable upgrade now feature
+
+apt_default_packages:                 # Default package to install
+  - python3-apt
+  - unattended-upgrades
+
