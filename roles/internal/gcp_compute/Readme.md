@@ -10,4 +10,4 @@ gcp_compute_region: "us-central1"
 gcp_compute_auth_kind: serviceaccount
 gcp_compute_image: 'projects/ubuntu-os-cloud/global/images/family/ubuntu-1804-lts'
 gcp_compute_instance_disk_size: 10
-````
+````
