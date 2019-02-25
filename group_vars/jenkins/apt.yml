@@ -4,9 +4,11 @@
 ## See group_vars/all/apt.yml
 
 ## Apply security patchs and reboot if needed
-upgrade_now: True  # Enable upgrade now feature
+# Enable upgrade now feature
+upgrade_now: True
 
-apt_default_packages:                 # Default package to install
+# Default package to install
+apt_default_packages:
   - python3-apt
   - unattended-upgrades
 
