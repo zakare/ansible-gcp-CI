@@ -1,10 +1,9 @@
-# Conrad Connect Challenge
+# Ansible playbook to install Concourse/Jenkins on GCP
 
 ## Introduction
 
-Thank you for the opportunity
 
-This repository creates a GCP instances with an External IP and installs Nginx & Jenkins. The directory structure is structures as follow
+This repository creates a GCP instances with an External IP and installs Nginx & ConCourse/Jenkins. The directory structure is structures as follow
 
 ```
 prod.ini                  # inventory file for production stage
