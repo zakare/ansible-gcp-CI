@@ -105,7 +105,7 @@ cd plays
 ansible-playbook -i ../prod.ini concourse-web.yml
 ```
 - All credentials/secrets required by concourse are stored in vault with postfix ``*_enc.yml`
-- Jenkins User is located in group_vars/concourse-web/concourse.yml and Password is encrypted and located in group_vars/concourse-web/concourse_enc.yml (emad/pass1) very secure :)
+- Concourse User is located in group_vars/concourse-web/concourse.yml and Password is encrypted and located in group_vars/concourse-web/concourse_enc.yml (emad/pass1) very secure :)
 
 
 Concourse is easy to automate and all pipelines are described as code. Each task runs in a separate container. On the long run it makes maintenance much easier.
